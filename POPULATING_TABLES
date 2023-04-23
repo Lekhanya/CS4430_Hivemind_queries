@@ -1,0 +1,45 @@
+INSERT INTO University(University_name)
+VALUES('NUL'),
+	('LAC'),
+	('LP'),
+	('LEC'),
+	('CAS');
+INSERT INTO Students(Student_id,University_name,year_of_study)
+VALUES(201902922,'NUL',4),
+	(201501585,'LAC',3),
+	(201901809,'CAS',4),
+	(201903616,'LP',4),
+	(201905194,'LEC',3);
+INSERT INTO Lecturers(lecturer_id,University_name)
+VALUES(200902922,'NUL'),
+	(200501585,'LAC'),
+	(200901809,'CAS'),
+	(200903616,'LP'),
+	(200905194,'LEC');
+INSERT INTO SPersonal_infor(personal_info_id,student_id,first_name,middle_name,last_name,id_number,district)
+VALUES(101,201902922,'Zulu','Edward','Letsapo',0111234,'Maseru'),
+	(102,201501585,'Siya','Javi','Johnson',0110133,'Quthing'),
+	(103,201901809,'Itha','Anna','Grootman',0111023,'Maseru'),
+	(104,201903616,'Javier','Biggie','Hendrick',0111043,'Mokhotlong'),
+	(107,201905194,'Blondie','Anna','Mustafa',0111222,'Mafeteng');
+INSERT INTO LPersonal_infor(personal_info_id,lecturer_id,first_name,middle_name,last_name,id_number,district)
+VALUES(1011,200902922,'Andy','Edward','Red',0101234,'Maseru'),
+	(1022,200501585,'Jammie','Eddie','Johnson',0100133,'Quthing'),
+	(1033,200901809,'Samuel','Joel','Grootman',0110023,'Maseru'),
+	(1044,200903616,'Javier','Peter','Mustafa',0101043,'Mokhotlong'),
+	(1077,200905194,'Blondie','Anna','Hendricks',0101222,'Mafeteng');
+INSERT INTO SAcademic_records(academic_id, academic_year, student_id, arrival_year)
+VALUES
+  (1, '2022-2023', 201902922, 2019),
+  (2, '2022-2023', 201501585, 2018),
+  (3, '2022-2023', 201901809, 2018),
+  (4, '2022-2023', 201903616, 2019),
+  (7, '2022-2023', 201905194, 2020);
+
+INSERT INTO LAcademic_records(academic_id, academic_year, lecturer_id, arrival_year)
+VALUES
+  (11, '2022-2023', 200902922, 2009),
+  (22, '2022-2023', 200501585, 1988),
+  (33, '2022-2023', 200901809, 2008),
+  (44, '2022-2023', 200903616, 1980),
+  (77, '2022-2023', 200905194, 2000);

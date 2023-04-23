@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  NUL:
+    image: citusdata/citus:10.0
+    environment:
+      POSTGRES_PASSWORD: citus
+      POSTGRES_USER: citus
+      POSTGRES_DB: citus
+      PGDATA: /pgdata
+      CITUS_WORKER_NAME: NUL
+      CITUS_MASTER_HOST: citus-coordinator
+    depends_on:
+      - citus-coordinator
+    volumes:
+      - ./NUL:/var/lib/postgresql/pgdata
+    networks:
+      - citus
+
+  MOET:
+    image: citusdata/citus:10.0
+    environment:
+      POSTGRES_PASSWORD: citus
+      POSTGRES_USER: citus
+      POSTGRES_DB: citus
+      PGDATA: /pgdata
+      CITUS_WORKER_NAME: MOET
+      CITUS_MASTER_HOST: citus-coordinator
+    depends_on:
+      - citus-coordinator
+    volumes:
+      - ./MOET:/var/lib/postgresql/pgdata
+    networks:
+      - citus
+  citus-coordinator:
+    image: citusdata/citus:10.0
+    environment:
+      CITUS_NODES: NUL,MOET
+      POSTGRES_PASSWORD: citus
+      POSTGRES_USER: citus
+      POSTGRES_DB: citus
+      PGDATA: /pgdata
+    volumes:
+      - ./coordinator:/var/lib/postgresql/pgdata
+    ports:
+      - "5433:5432"
+    networks:
+      - citus
+
+networks:
+  citus:
